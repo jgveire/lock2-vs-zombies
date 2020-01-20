@@ -1,6 +1,7 @@
 sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Enemy, function (sprite, otherSprite) {
     otherSprite.destroy()
     sprite.destroy(effects.ashes, 100)
+    info.changeScoreBy(1)
 })
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     fireball = sprites.createProjectileFromSprite(img`
@@ -45,6 +46,7 @@ d d d e d .
 `, SpriteKind.Player)
 lock2.setFlag(SpriteFlag.StayInScreen, true)
 info.setLife(1)
+info.setScore(0)
 controller.moveSprite(lock2, 200, 200)
 game.onUpdateInterval(500, function () {
     zombie = sprites.create(img`
