@@ -19,19 +19,6 @@ function giveIntroduction () {
 `)
     showInstruction("lock2 vs zombies, press A to fire.")
 }
-function blinkLeds () {
-    light.setAll(0xff0000)
-    pause(100)
-    light.clear()
-    pause(50)
-    light.setAll(0xff0000)
-    pause(100)
-    light.clear()
-    pause(50)
-    light.setAll(0xff0000)
-    pause(100)
-    light.clear()
-}
 controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
     lock2.setImage(img`
 . . e e e . . . 
@@ -82,6 +69,19 @@ function showInstruction (text: string) {
     game.showLongText(text, DialogLayout.Bottom)
     music.baDing.play()
     info.changeScoreBy(1)
+}
+function blinkLeds () {
+    light.setAll(0xff0000)
+    pause(100)
+    light.clear()
+    pause(50)
+    light.setAll(0xff0000)
+    pause(100)
+    light.clear()
+    pause(50)
+    light.setAll(0xff0000)
+    pause(100)
+    light.clear()
 }
 let zombie: Sprite = null
 let fireball: Sprite = null
@@ -242,4 +242,5 @@ f 6 2 6 e .
 `, SpriteKind.Enemy)
     zombie.setVelocity(-100, 0)
     zombie.setPosition(180, Math.randomRange(8, 112))
+    zombie.lifespan = 2000
 })
