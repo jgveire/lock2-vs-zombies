@@ -1,7 +1,9 @@
 {
     "name": "lock2 vs zombies",
     "dependencies": {
-        "device": "*"
+        "device": "*",
+        "light": "*",
+        "controller": "*"
     },
     "description": "",
     "files": [
